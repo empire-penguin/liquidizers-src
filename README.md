@@ -1,5 +1,5 @@
 # `liquidizers-src`
-> liquidizers-src - Source code and logic to build liquid-dsp from source
+> Source code and logic to build liquid-dsp from source
 
 [![](https://img.shields.io/crates/v/liquidizers-src.svg)][crates-io]
 [![](https://docs.rs/liquidizers-src/badge.svg)][api-docs]
