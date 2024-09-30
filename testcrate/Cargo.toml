@@ -1,0 +1,9 @@
+[package]
+name = "testcrate"
+version = "0.1.0"
+authors = ["empire-penguin <gsroberts@ucsd.edu>"]
+edition = "2021"
+
+
+[build-dependencies]
+liquidizers-src = { path = ".." }
