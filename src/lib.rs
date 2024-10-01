@@ -1,6 +1,7 @@
 use std::{
     env,
     path::{Path, PathBuf},
+    process::Command,
 };
 
 pub fn add_files(build: &mut cc::Build, root: &Path, files: &[&str]) {
@@ -36,6 +37,17 @@ impl Build {
     }
     pub fn build(&self) {
         let vendor = Path::new(env!("CARGO_MANIFEST_DIR")).join("vendor");
+
+        let _ = Command::new("./bootstrap.sh")
+            .current_dir(&vendor)
+            .output()
+            .expect("Failed to bootstrap");
+
+        let _ = Command::new("./configure")
+            .current_dir(&vendor)
+            .output()
+            .expect("Failed to configure");
+
         let vendor_src = vendor.join("src");
         let mut build = cc::Build::new();
         build.include(&vendor).include(vendor.join("include"));
